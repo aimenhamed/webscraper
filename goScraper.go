@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/csv"
 	"log"
 	"os"
 )
@@ -14,4 +15,7 @@ func main() {
 		return
 	}
 	defer file.Close()
+
+	writer := csv.NewWriter(file)
+	defer writer.Flush()
 }
